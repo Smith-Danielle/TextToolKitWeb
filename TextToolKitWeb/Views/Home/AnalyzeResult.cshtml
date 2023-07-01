@@ -64,10 +64,10 @@
         <th style="width:50%">Character</th>
         <th>Count</th>
     </tr>
-    @for (int i = 0; i < ViewBag.AllCharList.Count; i++)
+    @for (int i = 0; i < ViewBag.CharList.Count; i++)
     {
         <tr>
-            <td>@ViewBag.AllCharList[i]</td>
+            <td>@ViewBag.CharList[i]</td>
             <td>@ViewBag.CharListCount[i]</td>
         </tr>
     }

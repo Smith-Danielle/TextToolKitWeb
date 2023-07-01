@@ -25,7 +25,7 @@ namespace TextToolKitWeb.Models
         public string MostWord { get; set; }
         public string LeastWord { get; set; }
 
-        public List<string> AllCharList { get; set; }
+        public List<string> CharList { get; set; }
         public List<int> CharListCount { get; set; }
 
         public List<string> WordList { get; set; }
@@ -103,9 +103,9 @@ namespace TextToolKitWeb.Models
             }
 
             //For Viewing Detailed Word and Word Count
-            AllCharList = "abcdefghijklmnopqrstuvwxyz0123456789`~!@#$%^&*()-_=+[]{}\\|;:'\",.<>/? ".Select(x => x.ToString()).ToList();
-            CharListCount = AllCharList.Select(x => statsChar.Where(y => y.Character == x.ToString()).Any() ? statsChar.Where(y => y.Character == x.ToString()).First().CharCount : 0).ToList();
-            AllCharList = AllCharList.Select(x => x == " " ? "Space" : x).ToList();
+            CharList = statsChar.OrderByDescending(x => x.CharCount).ThenBy(x => x.Character).Select(x => x.Character).Select(x => x == " " ? "Space" : x).ToList();
+            CharListCount = statsChar.OrderByDescending(x => x.CharCount).ThenBy(x => x.Character).Select(x => x.CharCount).ToList();
+
 
             //Word Data
 

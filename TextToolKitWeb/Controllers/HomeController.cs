@@ -54,7 +54,7 @@ namespace TextToolKitWeb.Controllers
                 ViewBag.LeastWord = analyze.LeastWord;
                 ViewBag.WordList = analyze.WordList;
                 ViewBag.WordListCount = analyze.WordListCount;
-                ViewBag.AllCharList = analyze.AllCharList;
+                ViewBag.CharList = analyze.CharList;
                 ViewBag.CharListCount = analyze.CharListCount;
             }
 
