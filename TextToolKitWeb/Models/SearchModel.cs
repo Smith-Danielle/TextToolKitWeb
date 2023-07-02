@@ -18,7 +18,7 @@ namespace TextToolKitWeb.Models
 
         public void CreateSearch(string text, string item)
         {
-            if (text.Contains(item))
+            if (text.ToLower().Contains(item.ToLower()))
             {
                 for (int i = 0; i < text.Length; i++)
                 {

@@ -110,13 +110,17 @@ namespace TextToolKitWeb.Models
             //Word Data
 
             List<string> splitWords = new List<string>();
-            if (text.Contains(' '))
+            if (text.Contains(' ') || text.Contains('.') || text.Contains('!') || text.Contains('?') || text.Contains(',') || text.Contains(';') || text.Contains(':'))
             {
                 string replace = text.Replace('.', ' ').Replace('!', ' ').Replace('?', ' ').Replace(',', ' ').Replace(';', ' ').Replace(':', ' ');
                 if (replace.Any(x => x != ' '))
                 {
                     splitWords = replace.ToLower().Split(' ').Where(x => !string.IsNullOrWhiteSpace(x)).Select(x => x.Trim()).ToList();
                 }
+            }
+            else
+            {
+                splitWords.Add(text);
             }
 
             WordCount = splitWords.Count;
@@ -154,11 +158,11 @@ namespace TextToolKitWeb.Models
                     var minWordGroup = statsWord.Where(x => x.WordCount == minWordCount).Select(x => x.Word).OrderBy(x => x);
                     LeastWord = minWordGroup.Count() > 1 ? string.Join(", ", minWordGroup) : minWordGroup.First();
                 }
-            }
 
-            //For Viewing Detailed Word and Word Count
-            WordList = statsWord.OrderByDescending(x => x.WordCount).ThenBy(x => x.Word).Select(x => x.Word).ToList();
-            WordListCount = statsWord.OrderByDescending(x => x.WordCount).ThenBy(x => x.Word).Select(x => x.WordCount).ToList();
+                //For Viewing Detailed Word and Word Count
+                WordList = statsWord.OrderByDescending(x => x.WordCount).ThenBy(x => x.Word).Select(x => x.Word).ToList();
+                WordListCount = statsWord.OrderByDescending(x => x.WordCount).ThenBy(x => x.Word).Select(x => x.WordCount).ToList();
+            }
         }
     }
 }

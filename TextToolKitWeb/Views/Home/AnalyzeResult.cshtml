@@ -1,11 +1,13 @@
 ﻿@*
     Result of entry will go here
 *@
-<p style="font-size:x-small;color:red"><u>Note:</u><br />
-* If space is the Most Used Character, it will be followed by the next most used character(s).<br />
-* If space is the Least Used Character, it will be followed by the next least used character(s).<br />
-* Letter casing is ignored in analysis. All will be counted as lower case.<br />
-* Words are counted as characters before a space or ending punctuation ( .!?,;: ).</p>
+<p style="font-size:x-small;color:red">
+    <u>Note:</u><br />
+    * If space is the Most Used Character, it will be followed by the next most used character(s).<br />
+    * If space is the Least Used Character, it will be followed by the next least used character(s).<br />
+    * Letter casing is ignored in analysis. All will be counted as lower case.<br />
+    * Words are counted as characters before a space or ending punctuation ( .!?,;: ).
+</p>
 <br />
 
 <h6><b>Entry:</b></h6>
@@ -82,13 +84,37 @@
         <th style="width:50%">Word</th>
         <th>Count</th>
     </tr>
-    @for (int i = 0; i < ViewBag.WordList.Count; i++)
-    {
-        <tr>
-            <td>@ViewBag.WordList[i]</td>
-            <td>@ViewBag.WordListCount[i]</td>
-        </tr>
+    @{
+        if (ViewBag.WordCount > 0)
+        {
+            for (int i = 0; i < ViewBag.WordList.Count; i++)
+            {
+                <tr>
+                    <td>@ViewBag.WordList[i]</td>
+                    <td>@ViewBag.WordListCount[i]</td>
+                </tr>
+            }
+        }
+        else
+        {
+            <tr>
+                <td>Entry contains no words.</td>
+                <td>Entry contains no words.</td>
+            </tr>
+
+        }
     }
 </table>
+<br />
+<br />
+
+@using (Html.BeginForm("AnalyzeEntry", "Home", FormMethod.Get))
+{
+    <table cellpadding="0" cellspacing="0">
+        <tr>
+            <td><input type="submit" value="Start New Anaylsis" /></td>
+        </tr>
+    </table>
+}
 
 

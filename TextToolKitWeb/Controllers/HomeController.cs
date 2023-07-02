@@ -93,5 +93,13 @@ namespace TextToolKitWeb.Controllers
             }
             return View("SearchEntry");
         }
+
+        //Module New Entry
+        [HttpPost]
+        public ActionResult SearchNewItem(SearchModel search)
+        {
+            ViewBag.UserTextEntry = search.UserTextEntry;
+            return View("SearchNewItem");
+        }
     }
 }
