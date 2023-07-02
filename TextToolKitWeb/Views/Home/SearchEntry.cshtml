@@ -1,0 +1,32 @@
+﻿@*
+    Entry fields for text and search go here, along with submission
+*@
+@model SearchModel
+@using (Html.BeginForm("FormSearch", "Home", FormMethod.Post))
+{
+    <table cellpadding="0" cellspacing="0">
+        <tr>
+            <th colspan="2" align="center">Enter Text for Search</th>
+        </tr>
+        <tr>
+            <td>
+                @Html.TextBoxFor(m => m.UserTextEntry, new { style = "width:400px;" })
+            </td>
+        </tr>
+        <tr>
+            <th colspan="2" align="center">Enter Item to Search for in Text</th>
+        </tr>
+        <tr>
+            <td>
+                @Html.TextBoxFor(m => m.UserSearchItem, new { style = "width:400px;" })
+            </td>
+        </tr>
+        <tr>
+            <td><input type="submit" value="Submit" /></td>
+        </tr>
+    </table>
+}
+<br />
+<br />
+
+<p style="font-size:small;">* Your entries can not be empty/ Both fields must contain at least one letter, number, or special character.</p>

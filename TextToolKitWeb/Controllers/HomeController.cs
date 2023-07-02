@@ -28,19 +28,28 @@ namespace TextToolKitWeb.Controllers
             return View();
         }
 
+        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        public IActionResult Error()
+        {
+            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+
+
         //Analyze
+
         //Module Entry
         public IActionResult AnalyzeEntry()
         {
             return View("AnalyzeEntry");
         }
-        //Module Result
+
+        //Module Result, if entry not empty
         [HttpPost]
         public ActionResult FormAnalyze(AnalyzeModel analyze)
         {
-            ViewBag.UserEntry = analyze.UserEntry;
             if (!string.IsNullOrEmpty(analyze.UserEntry))
             {
+                ViewBag.UserEntry = analyze.UserEntry;
                 analyze.CreateAnalysis(analyze.UserEntry);
                 ViewBag.LetterCount = analyze.LetterCount;
                 ViewBag.NumberCount = analyze.NumberCount;
@@ -56,15 +65,33 @@ namespace TextToolKitWeb.Controllers
                 ViewBag.WordListCount = analyze.WordListCount;
                 ViewBag.CharList = analyze.CharList;
                 ViewBag.CharListCount = analyze.CharListCount;
+                return View("AnalyzeResult");
             }
-
-            return View("AnalyzeResult");
+            return View("AnalyzeEntry");
         }
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
+
+        //Search
+
+        //Module Entry
+        public IActionResult SearchEntry()
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            return View("SearchEntry");
+        }
+
+        //Module Result
+        [HttpPost]
+        public ActionResult FormSearch(SearchModel search)
+        {
+            if (!string.IsNullOrEmpty(search.UserTextEntry) && !string.IsNullOrEmpty(search.UserSearchItem))
+            {
+                ViewBag.UserTextEntry = search.UserTextEntry;
+                ViewBag.UserSearchItem = search.UserSearchItem;
+                search.CreateSearch(search.UserTextEntry, search.UserSearchItem);
+                ViewBag.SearchIndices = search.SearchIndices;
+                return View("SearchResult");
+            }
+            return View("SearchEntry");
         }
     }
 }
