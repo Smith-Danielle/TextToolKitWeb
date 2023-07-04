@@ -4,23 +4,40 @@
 @model AnalyzeModel
 @using (Html.BeginForm("FormAnalyze", "Home", FormMethod.Post))
 {
-<table cellpadding="0" cellspacing="0">
+    <table cellpadding="0" cellspacing="0">
+        <tr>
+            <th colspan="2" align="center">Enter Text for Analysis</th>
+        </tr>
+        <tr>
+            <td>@Html.TextAreaFor(m => m.UserEntry, new { style = "width:600px; height:150px;" })</td>
+        </tr>
+        <tr>
+            <td style="font-size: small; background-color: yellow;">* Your entry can not be empty and must contain at least one letter, number, or special character.</td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td><input type="submit" value="Submit" /></td>
+        </tr>
+    </table>
+}
+<br />
+
+
+<table cellpadding="0" cellspacing="0" style="border-top: thin solid black; width: 100%">
     <tr>
-        <th colspan="2" align="center">Enter Text for Analysis</th>
+        <td style="font-size:small;">* Letter casing is ignored in analysis. All will be counted as lower case.</td>
     </tr>
     <tr>
-        <td>@Html.TextAreaFor(m => m.UserEntry, new { style = "width:600px; height:150px;" })</td>
+        <td style="font-size:small;">* Words are counted as characters before a space or ending punctuation ( .!?,;: ).</td>
     </tr>
     <tr>
-        <td style="font-size:small;color:red;">* Your entry can not be empty and must contain at least one letter, number, or special character.</td>
+        <td style="font-size:small;">* If space is the Most Used Character, the analysis will list 'Space followed by' the next most used character(s).</td>
     </tr>
     <tr>
-        <td>&nbsp;</td>
-    </tr>
-    <tr>
-        <td><input type="submit" value="Submit" /></td>
+        <td style="font-size:small;">* If space is the Least Used Character, the analysis will list 'Space followed by' the next least used character(s).</td>
     </tr>
 </table>
-}
 
 

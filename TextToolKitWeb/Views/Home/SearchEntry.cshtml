@@ -4,27 +4,35 @@
 @model SearchModel
 @using (Html.BeginForm("FormSearch", "Home", FormMethod.Post))
 {
-<table cellpadding="0" cellspacing="0">
+    <table cellpadding="0" cellspacing="0">
+        <tr>
+            <th colspan="2" align="center">Enter Text for Search</th>
+        </tr>
+        <tr>
+            <td>@Html.TextAreaFor(m => m.UserTextEntry, new { style = "width:600px; height:150px;" })</td>
+        </tr>
+        <tr>
+            <th colspan="2" align="center">Enter Item to Search for in Text</th>
+        </tr>
+        <tr>
+            <td>@Html.TextAreaFor(m => m.UserSearchItem, new { style = "width:600px; height:30px" })</td>
+        </tr>
+        <tr>
+            <td style="font-size: small; background-color: yellow;">* Your entries can not be empty. Both fields must contain at least one letter, number, or special character.</td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td><input type="submit" value="Submit" /></td>
+        </tr>
+    </table>
+}
+
+<br />
+
+<table cellpadding="0" cellspacing="0" style="border-top: thin solid black; width: 100%">
     <tr>
-        <th colspan="2" align="center">Enter Text for Search</th>
-    </tr>
-    <tr>
-        <td>@Html.TextAreaFor(m => m.UserTextEntry, new { style = "width:600px; height:150px;" })</td>
-    </tr>
-    <tr>
-        <th colspan="2" align="center">Enter Item to Search for in Text</th>
-    </tr>
-    <tr>
-        <td>@Html.TextAreaFor(m => m.UserSearchItem, new { style = "width:600px; height:30px" })</td>
-    </tr>
-    <tr>
-        <td style="font-size:small;color:red;">* Your entries can not be empty. Both fields must contain at least one letter, number, or special character.</td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td>
-    </tr>
-    <tr>
-        <td><input type="submit" value="Submit" /></td>
+        <td style="font-size:small">* Letter casing is ignored in search. All will be processed as lowercase.</td>
     </tr>
 </table>
-}

@@ -37,7 +37,7 @@
         <td>@Html.TextAreaFor(m => m.UserReplaceNewItem, new { style = "width:600px; height:30px;" })</td>
     </tr>
     <tr>
-        <td style="font-size:small;color:red;">* Your entries can not be empty. Both fields must contain at least one letter, number, or special character.</td>
+        <td style="font-size: small; background-color: yellow;">* Your entries can not be empty. Both fields must contain at least one letter, number, or special character.</td>
     </tr>
     <tr>
         <td>&nbsp;</td>
@@ -47,3 +47,8 @@
     </tr>
 </table>
 }
+<table cellpadding="0" cellspacing="0" style="border-top: thin solid black;width:100%">
+    <tr>
+        <td style="font-size:small">*Remove and replace modifications are case sensitive.</td>
+    </tr>
+</table>

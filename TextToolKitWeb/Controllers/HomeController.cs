@@ -117,7 +117,15 @@ namespace TextToolKitWeb.Controllers
         {
             if (modified != null)
             {
-                modify.UserModEntry = modified;
+                if (modified == "****ViewBag.UserModEntry***null***ViewBag.UserModEntry****")
+                {
+                    modify.UserModEntry = null;
+                    ModelState.Clear();
+                }
+                else
+                {
+                    modify.UserModEntry = modified;
+                }
             }
             if (!string.IsNullOrEmpty(modify.UserModEntry))
             {
