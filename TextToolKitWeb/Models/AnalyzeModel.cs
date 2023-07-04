@@ -12,7 +12,7 @@ namespace TextToolKitWeb.Models
         //From AnalyzeEntry View, to HomeController, then assigned here
         public string UserEntry { get; set; }
 
-        //From HomeController, then assigned here, lastly goes to AnalyzeResult View
+        //From CreatAnalysis, lastly goes to AnalyzeResult View
         public int LetterCount { get; set; }
         public int NumberCount { get; set; }
         public int SpaceCount { get; set; }
@@ -31,6 +31,7 @@ namespace TextToolKitWeb.Models
         public List<string> WordList { get; set; }
         public List<int> WordListCount { get; set; }
 
+        //Called from Controller
         public void CreateAnalysis(string text)
         {
             //Character Data

@@ -4,23 +4,23 @@
 @model AnalyzeModel
 @using (Html.BeginForm("FormAnalyze", "Home", FormMethod.Post))
 {
-    <table cellpadding="0" cellspacing="0">
-        <tr>
-            <th colspan="2" align="center">Enter Text for Analysis</th>
-        </tr>
-        <tr>
-            <td>
-                @Html.TextAreaFor(m => m.UserEntry, new { style = "width:600px;" })
-            </td>
-        </tr>
-        <tr>
-            <td><input type="submit" value="Submit" /></td>
-        </tr>
-    </table>
+<table cellpadding="0" cellspacing="0">
+    <tr>
+        <th colspan="2" align="center">Enter Text for Analysis</th>
+    </tr>
+    <tr>
+        <td>@Html.TextAreaFor(m => m.UserEntry, new { style = "width:600px; height:150px;" })</td>
+    </tr>
+    <tr>
+        <td style="font-size:small;color:red;">* Your entry can not be empty and must contain at least one letter, number, or special character.</td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td><input type="submit" value="Submit" /></td>
+    </tr>
+</table>
 }
-<br />
-<br />
-
-<p style="font-size:small;">* Your entry can not be empty and must contain at least one letter, number, or special character.</p>
 
 

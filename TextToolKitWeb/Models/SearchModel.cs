@@ -13,9 +13,10 @@ namespace TextToolKitWeb.Models
         public string UserTextEntry { get; set; }
         public string UserSearchItem { get; set; }
 
-        //From HomeController, then assigned here, lastly goes to AnalyzeResult View
+        //From CreateSearch, lastly goes to SearchResult View
         public List<int> SearchIndices = new List<int>();
 
+        //Called from Controller
         public void CreateSearch(string text, string item)
         {
             if (text.ToLower().Contains(item.ToLower()))

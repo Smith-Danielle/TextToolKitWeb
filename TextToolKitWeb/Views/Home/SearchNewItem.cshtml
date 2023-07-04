@@ -5,7 +5,7 @@
 
 <h6><b>Text Entry:</b></h6>
 
-<table class="table table-bordered">
+<table class="table table-bordered" style = "height:150px; background-color:lightgrey;">
     <tr>
         <td>@ViewBag.UserTextEntry</td>
     </tr>
@@ -19,25 +19,22 @@
         <th colspan="2" align="center">Enter Text for Search</th>
     </tr>
     <tr hidden>
-        <td>
-            @Html.TextAreaFor(m => m.UserTextEntry, new { style = "width:600px;", Value= "@ViewBag.UserTextEntry" })
-        </td>
+        <td>@Html.TextAreaFor(m => m.UserTextEntry, new { style = "width:600px; height:150px;"})</td>
     </tr>
     <tr>
         <th colspan="2" align="center">Enter New Item to Search for in Text</th>
     </tr>
     <tr>
-        <td>
-            @Html.TextBoxFor(m => m.UserSearchItem, new { style = "width:600px;" })
-        </td>
+        <td>@Html.TextAreaFor(m => m.UserSearchItem, new { style = "width:600px; height:30px;" })</td>
     </tr>
-
+    <tr>
+        <td style="font-size:small;color:red;">* Your entry can not be empty and must contain at least one letter, number, or special character.</td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+    </tr>
     <tr>
         <td><input type="submit" value="Submit" /></td>
     </tr>
 </table>
 }
-<br />
-<br />
-
-<p style="font-size:small;">* Your entry can not be empty and must contain at least one letter, number, or special character.</p>

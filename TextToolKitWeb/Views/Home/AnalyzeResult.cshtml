@@ -1,18 +1,10 @@
 ﻿@*
     Result of entry will go here
 *@
-<p style="font-size:x-small;color:red">
-    <u>Note:</u><br />
-    * If space is the Most Used Character, it will be followed by the next most used character(s).<br />
-    * If space is the Least Used Character, it will be followed by the next least used character(s).<br />
-    * Letter casing is ignored in analysis. All will be counted as lower case.<br />
-    * Words are counted as characters before a space or ending punctuation ( .!?,;: ).
-</p>
-<br />
 
 <h6><b>Entry:</b></h6>
 
-<table class="table table-bordered">
+<table class="table table-bordered" style="height:150px; background-color:lightgrey;">
     <tr>
         <td>@ViewBag.UserEntry</td>
     </tr>
@@ -21,43 +13,43 @@
 
 <table class="table table-bordered">
     <tr>
-        <td>Letter Count</td>
+        <td style="width:25%">Letter Count</td>
         <td>@ViewBag.LetterCount</td>
     </tr>
     <tr>
-        <td>Number Count</td>
+        <td style="width:25%">Number Count</td>
         <td>@ViewBag.NumberCount</td>
     </tr>
     <tr>
-        <td>Other Count</td>
+        <td style="width:25%">Other Count</td>
         <td>@ViewBag.OtherCount</td>
     </tr>
     <tr>
-        <td>Space Count</td>
+        <td style="width:25%">Space Count</td>
         <td>@ViewBag.SpaceCount</td>
     </tr>
     <tr>
-        <td>Total Count</td>
+        <td style="width:25%">Total Count</td>
         <td>@ViewBag.TotalCount</td>
     </tr>
     <tr>
-        <td>Most Used Character(s)</td>
+        <td style="width:25%">Most Used Character(s)</td>
         <td>@ViewBag.MostChar</td>
     </tr>
     <tr>
-        <td>Least Used Character(s)</td>
+        <td style="width:25%">Least Used Character(s)</td>
         <td>@ViewBag.LeastChar</td>
     </tr>
     <tr>
-        <td>Word Count</td>
+        <td style="width:25%">Word Count</td>
         <td>@ViewBag.WordCount</td>
     </tr>
     <tr>
-        <td>Most Used Word(s)</td>
+        <td style="width:25%">Most Used Word(s)</td>
         <td>@ViewBag.MostWord</td>
     </tr>
     <tr>
-        <td>Least Used Word(s)</td>
+        <td style="width:25%">Least Used Word(s)</td>
         <td>@ViewBag.LeastWord</td>
     </tr>
 
@@ -105,7 +97,7 @@
         }
     }
 </table>
-<br />
+
 <br />
 
 @using (Html.BeginForm("AnalyzeEntry", "Home", FormMethod.Get))
@@ -116,5 +108,22 @@
         </tr>
     </table>
 }
+<br />
+
+
+<table cellpadding="0" cellspacing="0" style="border-top: thin solid black;width:100%">
+    <tr>
+        <td style="font-size:small;">* Letter casing is ignored in analysis. All will be counted as lower case.</td>
+    </tr>
+    <tr>
+        <td style="font-size:small;">* Words are counted as characters before a space or ending punctuation ( .!?,;: ).</td>
+    </tr>
+    <tr>
+        <td style="font-size:small;">* If space is the Most Used Character, it will be followed by the next most used character(s).</td>
+    </tr>
+    <tr>
+        <td style="font-size:small;">* If space is the Least Used Character, it will be followed by the next least used character(s).</td>
+    </tr>
+</table>
 
 
