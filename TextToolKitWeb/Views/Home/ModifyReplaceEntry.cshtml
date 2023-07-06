@@ -1,11 +1,22 @@
 ﻿@*
     Entries for replacement items goes here, along with submission
 *@
+
+@section head{
+    <style type="text/css">
+        body {
+            background-image: url(../Images/AllPagePic.png);
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
+}
+
 @model ModifyModel
 
 <h6><b>Text Entry:</b></h6>
 
-<table class="table table-bordered" style = "height:150px; background-color:lightgrey;">
+<table class="table table-bordered" style="height:150px; background-color:lightgrey;">
     <tr>
         <td>@ViewBag.UserModEntry</td>
     </tr>
@@ -14,38 +25,38 @@
 
 @using (Html.BeginForm("FormModify", "Home", FormMethod.Post))
 {
-<table cellpadding="0" cellspacing="0">
-    <tr hidden>
-        <th colspan="2" align="center">Enter Text for Modification</th>
-    </tr>
-    <tr hidden>
-        <td>@Html.TextAreaFor(m => m.UserModEntry, new { style = "width:600px; height:150px;" })</td><!--This is being overriden in Controller to the ModifiedText, if there is one-->
-    </tr>
-    <tr hidden>
-        <td><input type="hidden" name="modified" value="@ViewBag.UserModEntry" /></td>
-    </tr>
-    <tr>
-        <th colspan="2" align="center">Enter Item to Remove From Text</th>
-    </tr>
-    <tr>
-        <td>@Html.TextAreaFor(m => m.UserReplaceCurrentItem, new { style = "width:600px; height:30px;" })</td>
-    </tr>
-    <tr>
-        <th colspan="2" align="center">Enter Replacement Item</th>
-    </tr>
-    <tr>
-        <td>@Html.TextAreaFor(m => m.UserReplaceNewItem, new { style = "width:600px; height:30px;" })</td>
-    </tr>
-    <tr>
-        <td style="font-size: small; background-color: yellow;">* Your entries can not be empty. Both fields must contain at least one letter, number, or special character.</td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td>
-    </tr>
-    <tr>
-        <td><input type="submit" name="command" value="Replace" /></td>
-    </tr>
-</table>
+    <table cellpadding="0" cellspacing="0">
+        <tr hidden>
+            <th colspan="2" align="center">Enter Text for Modification</th>
+        </tr>
+        <tr hidden>
+            <td>@Html.TextAreaFor(m => m.UserModEntry, new { style = "width:600px; height:150px;" })</td><!--This is being overriden in Controller to the ModifiedText, if there is one-->
+        </tr>
+        <tr hidden>
+            <td><input type="hidden" name="modified" value="@ViewBag.UserModEntry" /></td>
+        </tr>
+        <tr>
+            <th colspan="2" align="center">Enter Character(s) to Remove From Text</th>
+        </tr>
+        <tr>
+            <td>@Html.TextAreaFor(m => m.UserReplaceCurrentItem, new { style = "width:600px; height:30px;" })</td>
+        </tr>
+        <tr>
+            <th colspan="2" align="center">Enter Replacement Character(s)</th>
+        </tr>
+        <tr>
+            <td>@Html.TextAreaFor(m => m.UserReplaceNewItem, new { style = "width:600px; height:30px;" })</td>
+        </tr>
+        <tr>
+            <td style="font-size: small; background-color: yellow;">* Your entries can not be empty. Both fields must contain at least one letter, number, or special character.</td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td><input type="submit" name="command" value="Replace" /></td>
+        </tr>
+    </table>
 }
 <table cellpadding="0" cellspacing="0" style="border-top: thin solid black;width:100%">
     <tr>

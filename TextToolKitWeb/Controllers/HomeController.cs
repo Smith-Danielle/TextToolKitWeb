@@ -117,7 +117,9 @@ namespace TextToolKitWeb.Controllers
         {
             if (modified != null)
             {
-                if (modified == "****ViewBag.UserModEntry***null***ViewBag.UserModEntry****")
+                modify.UserModEntry = modified;
+                ModelState.Remove("UserModEntry");
+                /*if (modified == "****ViewBag.UserModEntry***null***ViewBag.UserModEntry****")
                 {
                     modify.UserModEntry = null;
                     ModelState.Clear();
@@ -125,17 +127,18 @@ namespace TextToolKitWeb.Controllers
                 else
                 {
                     modify.UserModEntry = modified;
-                }
+                    ModelState.Remove("UserModEntry");
+                }*/
             }
             if (!string.IsNullOrEmpty(modify.UserModEntry))
             {
                 //Replace and Remove go to custom views first before going to result view
                 ViewBag.UserModEntry = modify.UserModEntry;
-                if (command.Equals("Remove Item from Text"))
+                if (command.Equals("Remove Character(s) from Text"))
                 {
                     return View("ModifyRemoveEntry");
                 }
-                else if (command.Equals("Replace Item in Text"))
+                else if (command.Equals("Replace Character(s) in Text"))
                 {
                     return View("ModifyReplaceEntry");
                 }
@@ -194,9 +197,9 @@ namespace TextToolKitWeb.Controllers
                     {
                         modify.ReverseWords(modify.UserModEntry);
                     }
-                    if (command.Equals("Capitalize First Letter of Each Word in Text"))
+                    if (command.Equals("Initial Case Each Word in Text"))
                     {
-                        modify.CapitalizeWords(modify.UserModEntry);
+                        modify.InitialCaseWords(modify.UserModEntry);
                     }
                     ViewBag.UserModEntry = modify.UserModEntry;
                     ViewBag.ResultMessage = modify.ResultMessage;
@@ -205,6 +208,7 @@ namespace TextToolKitWeb.Controllers
                     return View("ModifyResult");
                 }
             }
+            ModelState.Clear();
             return View("ModifyEntry");
         }
     }

@@ -1,7 +1,19 @@
 ﻿@*
     Entry Field and submission button will go here
 *@
+
+@section head{
+    <style type="text/css">
+        body {
+            background-image: url(../Images/AllPagePic.png);
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
+}
+
 @model AnalyzeModel
+
 @using (Html.BeginForm("FormAnalyze", "Home", FormMethod.Post))
 {
     <table cellpadding="0" cellspacing="0">
@@ -39,5 +51,4 @@
         <td style="font-size:small;">* If space is the Least Used Character, the analysis will list 'Space followed by' the next least used character(s).</td>
     </tr>
 </table>
-
 

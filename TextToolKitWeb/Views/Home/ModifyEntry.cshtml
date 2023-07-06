@@ -1,7 +1,19 @@
 ﻿@*
     Entry Field and submission buttons will go here
 *@
+
+@section head{
+    <style type="text/css">
+        body {
+            background-image: url(../Images/AllPagePic.png);
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
+}
+
 @model ModifyModel
+
 @using (Html.BeginForm("FormModify", "Home", FormMethod.Post))
 {
     <table cellpadding="0" cellspacing="0">
@@ -20,31 +32,31 @@
         <tr>
             <td>&nbsp;</td>
         <tr>
-            <td><input type="submit" style="width: 330px; text-align: left;" name="command" value="Remove Item from Text" /></td>
+            <td><input type="submit" style="width: 240px; text-align: left;" name="command" value="Remove Character(s) from Text" /></td>
         </tr>
         <tr>
-            <td><input type="submit" style="width: 330px; text-align: left;" name="command" value="Replace Item in Text" /></td>
+            <td><input type="submit" style="width: 240px; text-align: left;" name="command" value="Replace Character(s) in Text" /></td>
         </tr>
         <tr>
-            <td><input type="submit" style="width: 330px; text-align: left;" name="command" value="Order All Characters in Text" /></td>
+            <td><input type="submit" style="width: 240px; text-align: left;" name="command" value="Order All Characters in Text" /></td>
         </tr>
         <tr>
-            <td><input type="submit" style="width: 330px; text-align: left;" name="command" value="Reverse Entire Text" /></td>
+            <td><input type="submit" style="width: 240px; text-align: left;" name="command" value="Reverse Entire Text" /></td>
         </tr>
         <tr>
-            <td><input type="submit" style="width: 330px; text-align: left;" name="command" value="Capitalize All Letters in Text" /></td>
+            <td><input type="submit" style="width: 240px; text-align: left;" name="command" value="Capitalize All Letters in Text" /></td>
         </tr>
         <tr>
-            <td><input type="submit" style="width: 330px; text-align: left;" name="command" value="Lowercase All Letters Text" /></td>
+            <td><input type="submit" style="width: 240px; text-align: left;" name="command" value="Lowercase All Letters Text" /></td>
         </tr>
         <tr>
-            <td><input type="submit" style="width: 330px; text-align: left;" name="command" value="Order All Words in Text" /></td>
+            <td><input type="submit" style="width: 240px; text-align: left;" name="command" value="Order All Words in Text" /></td>
         </tr>
         <tr>
-            <td><input type="submit" style="width: 330px; text-align: left;" name="command" value="Reverse Each Word in Text" /></td>
+            <td><input type="submit" style="width: 240px; text-align: left;" name="command" value="Reverse Each Word in Text" /></td>
         </tr>
         <tr>
-            <td><input type="submit" style="width: 330px; text-align: left;" name="command" value="Capitalize First Letter of Each Word in Text" /></td>
+            <td><input type="submit" style="width: 240px; text-align: left;" name="command" value="Initial Case Each Word in Text" /></td>
         </tr>
     </table>
 }
@@ -52,6 +64,9 @@
 <br />
 
 <table cellpadding="0" cellspacing="0" style="border-top: thin solid black; width: 100%">
+    <tr>
+        <td style="font-size:small">*Initial Case is capitalization of first letter in a word, while the remaining letters are lowercased.</td>
+    </tr>
     <tr>
         <td style="font-size:small">*Remove and replace modifications are case sensitive.</td>
     </tr>
@@ -62,6 +77,6 @@
         <td style="font-size:small;">*Words are counted as characters before a space or ending punctuation ( .!?,;: ).</td>
     </tr>
     <tr>
-        <td style="font-size:small;">*For ordering words, reversing each word, and capitalizing first letter of each word, all ending punctuations will be removed.</td>
+        <td style="font-size:small;">*For ordering words, reversing each word, and inital casing each word, all ending punctuations will be removed.</td>
     </tr>
 </table>

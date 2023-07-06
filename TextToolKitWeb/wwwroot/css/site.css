@@ -2,9 +2,9 @@
 for details on configuring this project to bundle and minify static web assets. */
 
 a.navbar-brand {
-  white-space: normal;
-  text-align: center;
-  word-break: break-all;
+    white-space: normal;
+    text-align: center;
+    word-break: break-all;
 }
 
 /* Provide sufficient contrast against white background */
@@ -59,13 +59,16 @@ html {
 }
 
 body {
-  /* Margin bottom by footer height */
-  margin-bottom: 60px;
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
+    /*background-image: url(../Images/AllPagePic.png);
+    background-repeat: no-repeat;
+    background-size: cover;*/
 }
 .footer {
   position: absolute;
   bottom: 0;
   width: 100%;
   white-space: nowrap;
-  line-height: 60px; /* Vertically center the text there */
+  line-height: 60px; /*Vertically center the text there */
 }

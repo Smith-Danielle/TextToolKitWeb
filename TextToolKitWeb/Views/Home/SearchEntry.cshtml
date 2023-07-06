@@ -1,7 +1,19 @@
 ﻿@*
     Entry fields for text and search go here, along with submission
 *@
+
+@section head{
+    <style type="text/css">
+        body {
+            background-image: url(../Images/AllPagePic.png);
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
+}
+
 @model SearchModel
+
 @using (Html.BeginForm("FormSearch", "Home", FormMethod.Post))
 {
     <table cellpadding="0" cellspacing="0">
@@ -12,7 +24,7 @@
             <td>@Html.TextAreaFor(m => m.UserTextEntry, new { style = "width:600px; height:150px;" })</td>
         </tr>
         <tr>
-            <th colspan="2" align="center">Enter Item to Search for in Text</th>
+            <th colspan="2" align="center">Enter Character(s) to Search for in Text</th>
         </tr>
         <tr>
             <td>@Html.TextAreaFor(m => m.UserSearchItem, new { style = "width:600px; height:30px" })</td>

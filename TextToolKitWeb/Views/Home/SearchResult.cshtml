@@ -1,7 +1,18 @@
 ﻿@*
     Result of search will go here
 *@
+
 @model SearchModel
+
+@section head{
+    <style type="text/css">
+        body {
+            background-image: url(../Images/AllPagePic.png);
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
+}
 
 <h6><b>Text Entry:</b></h6>
 
@@ -21,7 +32,7 @@
 
 <table class="table table-bordered">
     <tr>
-        <td style="width:25%">Search Item</td>
+        <td style="width:25%">Search Character(s)</td>
         <td>@ViewBag.UserSearchItem</td>
     </tr>
     <tr>
@@ -43,7 +54,7 @@
             </td>
         </tr>
         <tr>
-            <td><input style="width:275px;text-align:center;" type="submit" value="Search Same Text for New Item" /></td>
+            <td><input style="width:310px;text-align:center;" type="submit" value="Search Same Text for New Character(s)" /></td>
         </tr>
     </table>
 }
@@ -52,7 +63,7 @@
 {
     <table cellpadding="0" cellspacing="0">
         <tr>
-            <td><input style="width:275px;text-align:center;" type="submit" value="Start Completely New Search" /></td>
+            <td><input style="width:310px;text-align:center;" type="submit" value="Start Completely New Search" /></td>
         </tr>
     </table>
 }
