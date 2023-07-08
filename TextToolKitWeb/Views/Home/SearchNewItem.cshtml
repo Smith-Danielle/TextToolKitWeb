@@ -1,58 +1,69 @@
 ﻿@*
     New entry for search item goes here, along with submission
 *@
-
-@section head{
-    <style type="text/css">
-        body {
-            background-image: url(../Images/AllPagePic.png);
-            background-repeat: no-repeat;
-            background-size: cover;
-        }
-    </style>
-}
-
 @model SearchModel
 
-<h6><b>Text Entry:</b></h6>
+    <style type="text/css">
+        .picture {
+            background-image: url(../Images/HomePagePic.png);
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: center;
+            background-size: cover;
+            position: fixed;
+            height: 100px;
+            width: 100%;
+        }
+    </style>
 
-<table class="table table-bordered" style="height:150px; background-color:lightgrey;">
-    <tr>
-        <td>@ViewBag.UserTextEntry</td>
-    </tr>
-</table>
-<br />
+    <div class="picture" style="left:0">
+    </div>
+    <div style="padding-top:130px; padding-bottom:60px">
+        <h4><u><b>Search: New Character(s) Entry</b></u></h4>
+        <br />
+        <br />
+        <h6><b>Text Entry:</b></h6>
 
-@using (Html.BeginForm("FormSearch", "Home", FormMethod.Post))
-{
-    <table cellpadding="0" cellspacing="0">
-        <tr hidden>
-            <th colspan="2" align="center">Enter Text for Search</th>
-        </tr>
-        <tr hidden>
-            <td>@Html.TextAreaFor(m => m.UserTextEntry, new { style = "width:600px; height:150px;" })</td>
-        </tr>
-        <tr>
-            <th colspan="2" align="center">Enter New Item to Search for in Text</th>
-        </tr>
-        <tr>
-            <td>@Html.TextAreaFor(m => m.UserSearchItem, new { style = "width:600px; height:30px;" })</td>
-        </tr>
-        <tr>
-            <td style="font-size: small; background-color: yellow;">* Your entry can not be empty and must contain at least one letter, number, or special character.</td>
-        </tr>
-        <tr>
-            <td>&nbsp;</td>
-        </tr>
-        <tr>
-            <td><input type="submit" value="Submit" /></td>
-        </tr>
-    </table>
-}
-<br />
+        <table class="table table-bordered" style="height:150px; background-color:lightgrey;">
+            <tr>
+                <td>@ViewBag.UserTextEntry</td>
+            </tr>
+        </table>
+        <br />
 
-<table cellpadding="0" cellspacing="0" style="border-top: thin solid black;width:100%">
-    <tr>
-        <td style="font-size:small">* Letter casing is ignored in search. All will be processed as lowercase.</td>
-    </tr>
-</table>
+        @using (Html.BeginForm("FormSearch", "Home", FormMethod.Post))
+        {
+            <table cellpadding="0" cellspacing="0">
+                <tr hidden>
+                    <th colspan="2" align="center">Enter Text for Search</th>
+                </tr>
+                <tr hidden>
+                    <td>@Html.TextAreaFor(m => m.UserTextEntry, new { style = "width:600px; height:150px;" })</td>
+                </tr>
+                <tr>
+                    <th colspan="2" align="center">Enter New Character(s) to Search for in Text</th>
+                </tr>
+                <tr>
+                    <td>@Html.TextAreaFor(m => m.UserSearchItem, new { style = "width:600px; height:30px;" })</td>
+                </tr>
+                <tr>
+                    <td style="font-size: small; background-color: yellow;">* Your entry can not be empty and must contain at least one letter, number, or special character.</td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td><input type="submit" value="Submit" /></td>
+                </tr>
+            </table>
+        }
+        <br />
+
+        <table cellpadding="0" cellspacing="0" style="border-top: thin solid black;width:100%">
+            <tr>
+                <td style="font-size:small">* Letter casing is ignored in search. All will be processed as lowercase.</td>
+            </tr>
+        </table>
+    </div>
+    <div class="picture" style=" bottom:0; left:0">
+    </div>

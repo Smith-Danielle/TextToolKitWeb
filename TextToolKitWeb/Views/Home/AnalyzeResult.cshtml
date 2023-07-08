@@ -2,138 +2,149 @@
     Result of entry will go here
 *@
 
-@section head{
-    <style type="text/css">
-        body {
-            background-image: url(../Images/AllPagePic.png);
-            background-repeat: no-repeat;
-            background-size: cover;
-        }
-    </style>
-}
-
-<h6><b>Entry:</b></h6>
-
-<table class="table table-bordered" style="height:150px; background-color:lightgrey;">
-    <tr>
-        <td>@ViewBag.UserEntry</td>
-    </tr>
-</table>
-<br />
-
-<table class="table table-bordered">
-    <tr>
-        <td style="width:25%">Letter Count</td>
-        <td>@ViewBag.LetterCount</td>
-    </tr>
-    <tr>
-        <td style="width:25%">Number Count</td>
-        <td>@ViewBag.NumberCount</td>
-    </tr>
-    <tr>
-        <td style="width:25%">Other Count</td>
-        <td>@ViewBag.OtherCount</td>
-    </tr>
-    <tr>
-        <td style="width:25%">Space Count</td>
-        <td>@ViewBag.SpaceCount</td>
-    </tr>
-    <tr>
-        <td style="width:25%">Total Count</td>
-        <td>@ViewBag.TotalCount</td>
-    </tr>
-    <tr>
-        <td style="width:25%">Most Used Character(s)</td>
-        <td>@ViewBag.MostChar</td>
-    </tr>
-    <tr>
-        <td style="width:25%">Least Used Character(s)</td>
-        <td>@ViewBag.LeastChar</td>
-    </tr>
-    <tr>
-        <td style="width:25%">Word Count</td>
-        <td>@ViewBag.WordCount</td>
-    </tr>
-    <tr>
-        <td style="width:25%">Most Used Word(s)</td>
-        <td>@ViewBag.MostWord</td>
-    </tr>
-    <tr>
-        <td style="width:25%">Least Used Word(s)</td>
-        <td>@ViewBag.LeastWord</td>
-    </tr>
-
-</table>
-<br />
-
-<table class="table table-bordered" style="width:50%">
-    <tr>
-        <th style="width:50%">Character</th>
-        <th>Count</th>
-    </tr>
-    @for (int i = 0; i < ViewBag.CharList.Count; i++)
-    {
-        <tr>
-            <td>@ViewBag.CharList[i]</td>
-            <td>@ViewBag.CharListCount[i]</td>
-        </tr>
+<style type="text/css">
+    .picture {
+        background-image: url(../Images/HomePagePic.png);
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: center;
+        background-size: cover;
+        position: fixed;
+        height: 100px;
+        width: 100%;
     }
-</table>
-<br />
+</style>
 
-<table class="table table-bordered" style="width:50%">
-    <tr>
-        <th style="width:50%">Word</th>
-        <th>Count</th>
-    </tr>
-    @{
-        if (ViewBag.WordCount > 0)
-        {
-            for (int i = 0; i < ViewBag.WordList.Count; i++)
-            {
-                <tr>
-                    <td>@ViewBag.WordList[i]</td>
-                    <td>@ViewBag.WordListCount[i]</td>
-                </tr>
-            }
-        }
-        else
-        {
-            <tr>
-                <td>Entry contains no words.</td>
-                <td>Entry contains no words.</td>
-            </tr>
+<div class="picture" style="left:0">
+</div>
+<div style="padding-top:130px; padding-bottom:60px">
+    <h4><u><b>Analyze: Results</b></u></h4>
+    <br />
+    <br />
 
-        }
-    }
-</table>
+    <h6><b>Entry:</b></h6>
 
-<br />
-
-@using (Html.BeginForm("AnalyzeEntry", "Home", FormMethod.Get))
-{
-    <table cellpadding="0" cellspacing="0">
+    <table class="table table-bordered" style="height:150px; background-color:lightgrey;">
         <tr>
-            <td><input type="submit" value="Start New Anaylsis" /></td>
+            <td>@ViewBag.UserEntry</td>
         </tr>
     </table>
-}
-<br />
+    <br />
+
+    <table class="table table-bordered">
+        <tr>
+            <td style="width:25%">Letter Count</td>
+            <td>@ViewBag.LetterCount</td>
+        </tr>
+        <tr>
+            <td style="width:25%">Number Count</td>
+            <td>@ViewBag.NumberCount</td>
+        </tr>
+        <tr>
+            <td style="width:25%">Other Count</td>
+            <td>@ViewBag.OtherCount</td>
+        </tr>
+        <tr>
+            <td style="width:25%">Space Count</td>
+            <td>@ViewBag.SpaceCount</td>
+        </tr>
+        <tr>
+            <td style="width:25%">Total Count</td>
+            <td>@ViewBag.TotalCount</td>
+        </tr>
+        <tr>
+            <td style="width:25%">Most Used Character(s)</td>
+            <td>@ViewBag.MostChar</td>
+        </tr>
+        <tr>
+            <td style="width:25%">Least Used Character(s)</td>
+            <td>@ViewBag.LeastChar</td>
+        </tr>
+        <tr>
+            <td style="width:25%">Word Count</td>
+            <td>@ViewBag.WordCount</td>
+        </tr>
+        <tr>
+            <td style="width:25%">Most Used Word(s)</td>
+            <td>@ViewBag.MostWord</td>
+        </tr>
+        <tr>
+            <td style="width:25%">Least Used Word(s)</td>
+            <td>@ViewBag.LeastWord</td>
+        </tr>
+
+    </table>
+    <br />
+
+    <table class="table table-bordered" style="width:50%">
+        <tr>
+            <th style="width:50%">Character</th>
+            <th>Count</th>
+        </tr>
+        @for (int i = 0; i < ViewBag.CharList.Count; i++)
+        {
+            <tr>
+                <td>@ViewBag.CharList[i]</td>
+                <td>@ViewBag.CharListCount[i]</td>
+            </tr>
+        }
+    </table>
+    <br />
+
+    <table class="table table-bordered" style="width:50%">
+        <tr>
+            <th style="width:50%">Word</th>
+            <th>Count</th>
+        </tr>
+        @{
+            if (ViewBag.WordCount > 0)
+            {
+                for (int i = 0; i < ViewBag.WordList.Count; i++)
+                {
+                    <tr>
+                        <td>@ViewBag.WordList[i]</td>
+                        <td>@ViewBag.WordListCount[i]</td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr>
+                    <td>Entry contains no words.</td>
+                    <td>Entry contains no words.</td>
+                </tr>
+
+            }
+        }
+    </table>
+
+    <br />
+
+    @using (Html.BeginForm("AnalyzeEntry", "Home", FormMethod.Get))
+    {
+        <table cellpadding="0" cellspacing="0">
+            <tr>
+                <td><input type="submit" value="Start New Anaylsis" /></td>
+            </tr>
+        </table>
+    }
+    <br />
 
 
-<table cellpadding="0" cellspacing="0" style="border-top: thin solid black; width: 100%">
-    <tr>
-        <td style="font-size:small;">* Letter casing is ignored in analysis. All will be counted as lower case.</td>
-    </tr>
-    <tr>
-        <td style="font-size:small;">* Words are counted as characters before a space or ending punctuation ( .!?,;: ).</td>
-    </tr>
-    <tr>
-        <td style="font-size:small;">* If space is the Most Used Character, it will be followed by the next most used character(s).</td>
-    </tr>
-    <tr>
-        <td style="font-size:small;">* If space is the Least Used Character, it will be followed by the next least used character(s).</td>
-    </tr>
-</table>
-
-
+    <table cellpadding="0" cellspacing="0" style="border-top: thin solid black; width: 100%">
+        <tr>
+            <td style="font-size:small;">* Letter casing is ignored in analysis. All will be counted as lower case.</td>
+        </tr>
+        <tr>
+            <td style="font-size:small;">* Words are counted as characters before a space or ending punctuation ( .!?,;: ).</td>
+        </tr>
+        <tr>
+            <td style="font-size:small;">* If space is the Most Used Character, it will be followed by the next most used character(s).</td>
+        </tr>
+        <tr>
+            <td style="font-size:small;">* If space is the Least Used Character, it will be followed by the next least used character(s).</td>
+        </tr>
+    </table>
+</div>
+<div class="picture" style=" bottom:0; left:0">
+</div>

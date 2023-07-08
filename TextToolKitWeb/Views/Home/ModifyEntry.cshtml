@@ -1,82 +1,93 @@
 ﻿@*
     Entry Field and submission buttons will go here
 *@
-
-@section head{
-    <style type="text/css">
-        body {
-            background-image: url(../Images/AllPagePic.png);
-            background-repeat: no-repeat;
-            background-size: cover;
-        }
-    </style>
-}
-
 @model ModifyModel
 
-@using (Html.BeginForm("FormModify", "Home", FormMethod.Post))
-{
-    <table cellpadding="0" cellspacing="0">
-        <tr>
-            <th colspan="2" align="center">Enter Text for Modification</th>
-        </tr>
-        <tr>
-            <td>@Html.TextAreaFor(m => m.UserModEntry, new { style = "width:600px; height:150px;" })</td>
-        </tr>
-        <tr>
-            <td style="font-size: small; background-color: yellow;">* Your entry can not be empty and must contain at least one letter, number, or special character.</td>
-        </tr>
-        <tr>
-            <td>&nbsp;</td>
-        </tr>
-        <tr>
-            <td>&nbsp;</td>
-        <tr>
-            <td><input type="submit" style="width: 240px; text-align: left;" name="command" value="Remove Character(s) from Text" /></td>
-        </tr>
-        <tr>
-            <td><input type="submit" style="width: 240px; text-align: left;" name="command" value="Replace Character(s) in Text" /></td>
-        </tr>
-        <tr>
-            <td><input type="submit" style="width: 240px; text-align: left;" name="command" value="Order All Characters in Text" /></td>
-        </tr>
-        <tr>
-            <td><input type="submit" style="width: 240px; text-align: left;" name="command" value="Reverse Entire Text" /></td>
-        </tr>
-        <tr>
-            <td><input type="submit" style="width: 240px; text-align: left;" name="command" value="Capitalize All Letters in Text" /></td>
-        </tr>
-        <tr>
-            <td><input type="submit" style="width: 240px; text-align: left;" name="command" value="Lowercase All Letters Text" /></td>
-        </tr>
-        <tr>
-            <td><input type="submit" style="width: 240px; text-align: left;" name="command" value="Order All Words in Text" /></td>
-        </tr>
-        <tr>
-            <td><input type="submit" style="width: 240px; text-align: left;" name="command" value="Reverse Each Word in Text" /></td>
-        </tr>
-        <tr>
-            <td><input type="submit" style="width: 240px; text-align: left;" name="command" value="Initial Case Each Word in Text" /></td>
-        </tr>
-    </table>
-}
+    <style type="text/css">
+        .picture {
+            background-image: url(../Images/HomePagePic.png);
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: center;
+            background-size: cover;
+            position: fixed;
+            height: 100px;
+            width: 100%;
+        }
+    </style>
 
-<br />
+    <div class="picture" style="left:0">
+    </div>
+    <div style="padding-top:130px; padding-bottom:60px">
+        <h4><u><b>Modify: Entry</b></u></h4>
+        <br />
+        <br />
+        @using (Html.BeginForm("FormModify", "Home", FormMethod.Post))
+        {
+            <table cellpadding="0" cellspacing="0">
+                <tr>
+                    <th colspan="2" align="center">Enter Text for Modification</th>
+                </tr>
+                <tr>
+                    <td>@Html.TextAreaFor(m => m.UserModEntry, new { style = "width:600px; height:150px;" })</td>
+                </tr>
+                <tr>
+                    <td style="font-size: small; background-color: yellow;">* Your entry can not be empty and must contain at least one letter, number, or special character.</td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                <tr>
+                    <td><input type="submit" style="width: 240px; text-align: left;" name="command" value="Remove Character(s) from Text" /></td>
+                </tr>
+                <tr>
+                    <td><input type="submit" style="width: 240px; text-align: left;" name="command" value="Replace Character(s) in Text" /></td>
+                </tr>
+                <tr>
+                    <td><input type="submit" style="width: 240px; text-align: left;" name="command" value="Order All Characters in Text" /></td>
+                </tr>
+                <tr>
+                    <td><input type="submit" style="width: 240px; text-align: left;" name="command" value="Reverse Entire Text" /></td>
+                </tr>
+                <tr>
+                    <td><input type="submit" style="width: 240px; text-align: left;" name="command" value="Capitalize All Letters in Text" /></td>
+                </tr>
+                <tr>
+                    <td><input type="submit" style="width: 240px; text-align: left;" name="command" value="Lowercase All Letters Text" /></td>
+                </tr>
+                <tr>
+                    <td><input type="submit" style="width: 240px; text-align: left;" name="command" value="Order All Words in Text" /></td>
+                </tr>
+                <tr>
+                    <td><input type="submit" style="width: 240px; text-align: left;" name="command" value="Reverse Each Word in Text" /></td>
+                </tr>
+                <tr>
+                    <td><input type="submit" style="width: 240px; text-align: left;" name="command" value="Initial Case Each Word in Text" /></td>
+                </tr>
+            </table>
+        }
 
-<table cellpadding="0" cellspacing="0" style="border-top: thin solid black; width: 100%">
-    <tr>
-        <td style="font-size:small">*Initial Case is capitalization of first letter in a word, while the remaining letters are lowercased.</td>
-    </tr>
-    <tr>
-        <td style="font-size:small">*Remove and replace modifications are case sensitive.</td>
-    </tr>
-    <tr>
-        <td style="font-size:small;">*When ordering all characters, if spaces are included, the spaces will be ordered to the front of the modified entry.</td>
-    </tr>
-    <tr>
-        <td style="font-size:small;">*Words are counted as characters before a space or ending punctuation ( .!?,;: ).</td>
-    </tr>
-    <tr>
-        <td style="font-size:small;">*For ordering words, reversing each word, and inital casing each word, all ending punctuations will be removed.</td>
-    </tr>
-</table>
+        <br />
+
+        <table cellpadding="0" cellspacing="0" style="border-top: thin solid black; width: 100%">
+            <tr>
+                <td style="font-size:small">*Initial Case is capitalization of first letter in a word, while the remaining letters are lowercased.</td>
+            </tr>
+            <tr>
+                <td style="font-size:small">*Remove and replace modifications are case sensitive.</td>
+            </tr>
+            <tr>
+                <td style="font-size:small;">*When ordering all characters, if spaces are included, the spaces will be ordered to the front of the modified entry.</td>
+            </tr>
+            <tr>
+                <td style="font-size:small;">*Words are counted as characters before a space or ending punctuation ( .!?,;: ).</td>
+            </tr>
+            <tr>
+                <td style="font-size:small;">*For ordering words, reversing each word, and inital casing each word, all ending punctuations will be removed.</td>
+            </tr>
+        </table>
+    </div>
+    <div class="picture" style=" bottom:0; left:0">
+    </div>

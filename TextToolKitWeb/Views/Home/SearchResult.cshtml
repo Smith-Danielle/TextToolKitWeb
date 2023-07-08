@@ -1,85 +1,93 @@
 ﻿@*
     Result of search will go here
 *@
-
 @model SearchModel
 
-@section head{
-    <style type="text/css">
-        body {
-            background-image: url(../Images/AllPagePic.png);
-            background-repeat: no-repeat;
-            background-size: cover;
-        }
-    </style>
-}
-
-<h6><b>Text Entry:</b></h6>
-
-<table class="table table-bordered" style="height:150px; background-color:lightgrey;">
-    <tr>
-        @if (ViewBag.SearchIndices.Count > 0)
-        {
-            <td id="result"></td>
-        }
-        else
-        {
-            <td>@ViewBag.UserTextEntry</td>
-        }
-    </tr>
-</table>
-<br />
-
-<table class="table table-bordered">
-    <tr>
-        <td style="width:25%">Search Character(s)</td>
-        <td>@ViewBag.UserSearchItem</td>
-    </tr>
-    <tr>
-        <td style="width:25%">Number of Occurences</td>
-        <td>@ViewBag.SearchIndices.Count</td>
-    </tr>
-</table>
-
-<br />
-<br />
-
-
-@using (Html.BeginForm("SearchNewItem", "Home", FormMethod.Post))
-{
-    <table cellpadding="0" cellspacing="0">
-        <tr>
-            <td hidden>
-                @Html.TextAreaFor(m => m.UserTextEntry, new { style = "width:600px; height:150px;", Value = "@ViewBag.UserTextEntry" })
-            </td>
-        </tr>
-        <tr>
-            <td><input style="width:310px;text-align:center;" type="submit" value="Search Same Text for New Character(s)" /></td>
-        </tr>
-    </table>
-}
-
-@using (Html.BeginForm("SearchEntry", "Home", FormMethod.Get))
-{
-    <table cellpadding="0" cellspacing="0">
-        <tr>
-            <td><input style="width:310px;text-align:center;" type="submit" value="Start Completely New Search" /></td>
-        </tr>
-    </table>
-}
-<br />
-
-<table cellpadding="0" cellspacing="0" style="border-top: thin solid black; width: 100%">
-    <tr>
-        <td style="font-size:small">* Letter casing is ignored in search. All will be processed as lowercase.</td>
-    </tr>
-</table>
-
-<style>
+<style type="text/css">
+    .picture {
+        background-image: url(../Images/HomePagePic.png);
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: center;
+        background-size: cover;
+        position: fixed;
+        height: 100px;
+        width: 100%;
+    }
     .highlight {
         background-color: greenyellow;
     }
 </style>
+
+<div class="picture" style="left:0">
+</div>
+<div style="padding-top:130px; padding-bottom:60px">
+    <h4><u><b>Search: Results</b></u></h4>
+    <br />
+    <br />
+    <h6><b>Text Entry:</b></h6>
+
+    <table class="table table-bordered" style="height:150px; background-color:lightgrey;">
+        <tr>
+            @if (ViewBag.SearchIndices.Count > 0)
+            {
+                <td id="result"></td>
+            }
+            else
+            {
+                <td>@ViewBag.UserTextEntry</td>
+            }
+        </tr>
+    </table>
+    <br />
+
+    <table class="table table-bordered">
+        <tr>
+            <td style="width:25%">Search Character(s)</td>
+            <td>@ViewBag.UserSearchItem</td>
+        </tr>
+        <tr>
+            <td style="width:25%">Number of Occurences</td>
+            <td>@ViewBag.SearchIndices.Count</td>
+        </tr>
+    </table>
+
+    <br />
+    <br />
+
+
+    @using (Html.BeginForm("SearchNewItem", "Home", FormMethod.Post))
+    {
+        <table cellpadding="0" cellspacing="0">
+            <tr>
+                <td hidden>
+                    @Html.TextAreaFor(m => m.UserTextEntry, new { style = "width:600px; height:150px;", Value = "@ViewBag.UserTextEntry" })
+                </td>
+            </tr>
+            <tr>
+                <td><input style="width:310px;text-align:center;" type="submit" value="Search Same Text for New Character(s)" /></td>
+            </tr>
+        </table>
+    }
+
+    @using (Html.BeginForm("SearchEntry", "Home", FormMethod.Get))
+    {
+        <table cellpadding="0" cellspacing="0">
+            <tr>
+                <td><input style="width:310px;text-align:center;" type="submit" value="Start Completely New Search" /></td>
+            </tr>
+        </table>
+    }
+    <br />
+
+    <table cellpadding="0" cellspacing="0" style="border-top: thin solid black; width: 100%">
+        <tr>
+            <td style="font-size:small">* Letter casing is ignored in search. All will be processed as lowercase.</td>
+        </tr>
+    </table>
+</div>
+<div class="picture" style=" bottom:0; left:0">
+</div>
 
 <script>
     var userText = '@ViewBag.UserTextEntry';
