@@ -81,27 +81,29 @@ namespace TextToolKitWeb.Controllers
 
         //Module Result
         [HttpPost]
-        public ActionResult FormSearch(SearchModel search)
+        public ActionResult FormSearch(SearchModel search, string command)
         {
-            if (!string.IsNullOrEmpty(search.UserTextEntry) && !string.IsNullOrEmpty(search.UserSearchItem))
+            if (!string.IsNullOrEmpty(search.UserTextEntry))
             {
                 ViewBag.UserTextEntry = search.UserTextEntry;
-                ViewBag.UserSearchItem = search.UserSearchItem;
-                search.CreateSearch(search.UserTextEntry, search.UserSearchItem);
-                ViewBag.SearchIndices = search.SearchIndices;
-                return View("SearchResult");
+                if (!string.IsNullOrEmpty(search.UserSearchItem))
+                {
+                    ViewBag.UserSearchItem = search.UserSearchItem;
+                    search.CreateSearch(search.UserTextEntry, search.UserSearchItem);
+                    ViewBag.SearchIndices = search.SearchIndices;
+                    return View("SearchResult");
+                }
+                if (command.Equals("Search Same Text for New Character(s)"))//From result page, send to new character entry page
+                {
+                    return View("SearchNewItem");
+                }
+                if (command.Equals("Submit New Character(s)"))//if new character entry page empty, send back to that same page
+                {
+                    return View("SearchNewItem");
+                }
             }
             return View("SearchEntry");
         }
-
-        //Module New Entry
-        [HttpPost]
-        public ActionResult SearchNewItem(SearchModel search)
-        {
-            ViewBag.UserTextEntry = search.UserTextEntry;
-            return View("SearchNewItem");
-        }
-
 
         //Modify
 
@@ -119,16 +121,6 @@ namespace TextToolKitWeb.Controllers
             {
                 modify.UserModEntry = modified;
                 ModelState.Remove("UserModEntry");
-                /*if (modified == "****ViewBag.UserModEntry***null***ViewBag.UserModEntry****")
-                {
-                    modify.UserModEntry = null;
-                    ModelState.Clear();
-                }
-                else
-                {
-                    modify.UserModEntry = modified;
-                    ModelState.Remove("UserModEntry");
-                }*/
             }
             if (!string.IsNullOrEmpty(modify.UserModEntry))
             {

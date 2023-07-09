@@ -63,20 +63,10 @@
         {
             <table cellpadding="0" cellspacing="0">
                 <tr hidden>
-                    <td>@Html.TextAreaFor(m => m.UserModEntry, new { style = "width:600px; height:150px;" })</td> <!--This is being overriden in Controller to the ModifiedText, if there is one-->
+                    <td>@Html.TextAreaFor(m => m.UserModEntry, new { style = "width:600px; height:150px;" })</td> <!--This is being overriden in Controller to match latest entry-->
                 </tr>
                 <tr hidden>
                     <td><input type="hidden" name="modified" value="@ViewBag.UserModEntry" /></td>
-                    <!--@{
-                        if (!string.IsNullOrEmpty(ViewBag.UserModEntry))
-                        {
-                            <td><input type="hidden" name="modified" value="@ViewBag.UserModEntry" /></td>
-                        }
-                        else
-                        {
-                            <td><input type="hidden" name="modified" value="****ViewBag.UserModEntry***null***ViewBag.UserModEntry****" /></td>
-                        }
-                    }-->
                 </tr>
                 <tr>
                     <td><input type="submit" style="width: 240px; text-align: left;" name="command" value="Remove Character(s) from Text" /></td>
@@ -119,6 +109,8 @@
             </table>
         }
 
+        <br />
+        <br />
         <br />
 
         <table cellpadding="0" cellspacing="0" style="border-top: thin solid black;width:100%">

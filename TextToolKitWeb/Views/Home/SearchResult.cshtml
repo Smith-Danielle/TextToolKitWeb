@@ -56,7 +56,7 @@
     <br />
 
 
-    @using (Html.BeginForm("SearchNewItem", "Home", FormMethod.Post))
+    @using (Html.BeginForm("FormSearch", "Home", FormMethod.Post))
     {
         <table cellpadding="0" cellspacing="0">
             <tr>
@@ -65,7 +65,7 @@
                 </td>
             </tr>
             <tr>
-                <td><input style="width:310px;text-align:center;" type="submit" value="Search Same Text for New Character(s)" /></td>
+                <td><input style="width:310px;text-align:center;" type="submit" name="command" value="Search Same Text for New Character(s)" /></td>
             </tr>
         </table>
     }
@@ -78,6 +78,8 @@
             </tr>
         </table>
     }
+    <br />
+    <br />
     <br />
 
     <table cellpadding="0" cellspacing="0" style="border-top: thin solid black; width: 100%">
